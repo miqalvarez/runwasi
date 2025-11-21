@@ -413,6 +413,13 @@ impl Client {
         // This label is unique across runtimes and version of the shim running
         // a precompiled component/module will not work across different runtimes or versions
 
+        log::info!("Layers: {}", manifest.layers().len());
+        log::info!(
+            "Supported layer types: {:?}",
+            supported_layer_types
+        );
+
+
         let configs = manifest
             .layers()
             .iter()
