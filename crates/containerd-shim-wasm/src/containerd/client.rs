@@ -395,6 +395,7 @@ impl Client {
         supported_layer_types: &[&str],
         compiler: Option<&impl Compiler>,
     ) -> Result<Vec<WasmLayer>> {
+        log::info!("Peridot: Loading modules for container: {:?}", containerd_id);
         let container = self.get_container(containerd_id).await?;
         let (manifest, image_digest) = self.get_image_manifest_and_digest(&container.image).await?;
 
